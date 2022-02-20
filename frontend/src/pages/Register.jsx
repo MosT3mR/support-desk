@@ -4,6 +4,7 @@ import { FaUser } from "react-icons/fa"
 import { toast } from "react-toastify"
 import { useSelector, useDispatch } from "react-redux"
 import { register, reset } from "../features/auth/authSlice"
+import Spinner from "../components/Spinner"
 
 function Register() {
  const [formData, setFromData] = useState({
@@ -56,6 +57,10 @@ function Register() {
   }
  }
 
+ if(isLoading) {
+   return <Spinner />
+ }
+ 
   return (
     <>
      <section className="headign">
